@@ -34,32 +34,44 @@ class UserPrompter {
     }
 }
 
-class Triangle {
-    constructor(color) {
-        this.color = color;
+class Shape {
+    constructor(responses) {
+        this.responses = responses;
     }
-
-    init() {
-        return `<polygon points="10,90 50,10 90,90" fill="${this.color}" />`;
+    render() {
+        throw new Error('Shape is not implemented');
     }
 }
 
-class Circle {
-    constructor(color) {
-        this.color = color;
+class Triangle extends Shape {
+    constructor(responses) {
+        super(responses);
+        this.color = responses.color;
     }
 
-    init() {
+    render() {
+        return `'<polygon points='150, 18 244, 182 56, 182' fill='${this.color}' />'`;
+    }
+}
+
+class Circle extends Shape {
+    constructor(responses) {
+        super(responses); 
+        this.color = responses.color;
+    }
+
+    render() {
         return `<circle cx="50" cy="50" r="40" fill="${this.color}" />`;
     }
 }
 
-class Square {
-    constructor(color) {
-        this.color = color;
+class Square extends Shape {
+    constructor(responses) {
+        super(responses); 
+        this.color = responses.color;
     }
 
-    init() {
+    render () {
         return `<rect x="0" y="0" width="100" height="100" fill="${this.color}" />`;
     }
 }
@@ -74,25 +86,27 @@ class LogoGenerator {
             throw new Error('Logo text exceeds 3 characters');
         }
 
-        let shapeSVG;
+        let shape;
         switch (this.data.shape) {
             case 'Circle':
-                shapeSVG = new Circle(this.data.color).init();
+                shape = new Circle(this.data);
                 break;
             case 'Square':
-                shapeSVG = new Square(this.data.color).init();
+                shape = new Square(this.data);
                 break;
             case 'Triangle':
-                shapeSVG = new Triangle(this.data.color).init();
+                shape = new Triangle(this.data);
                 break;
             default:
                 throw new Error('Invalid shape');
         }
 
+        const shapeSVG = shape.render();
         const textSVG = `<text x="50" y="55" font-family="Arial" font-size="20" fill="${this.data.textColor}" text-anchor="middle">${this.data.text}</text>`;
         return `<svg width="200" height="200" viewBox="0 0 100 100">${shapeSVG}${textSVG}</svg>`;
     }
 }
+
 
 async function init() {
     try {
@@ -110,4 +124,13 @@ async function init() {
 
 init();
 
-module.exports = init;
+module.exports = {
+    init,
+    Triangle,
+    Circle,
+    Square,
+    LogoGenerator,
+    UserPrompter,
+    Shape
+    
+};
