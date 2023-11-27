@@ -50,7 +50,8 @@ class Triangle extends Shape {
     }
 
     render() {
-        return `'<polygon points='150, 18 244, 182 56, 182' fill='${this.color}' />'`;
+        return `<polygon points="150, 18 244, 182 56, 182" fill="${this.color}" />`
+
     }
 }
 
@@ -103,7 +104,7 @@ class LogoGenerator {
 
         const shapeSVG = shape.render();
         const textSVG = `<text x="50" y="55" font-family="Arial" font-size="20" fill="${this.data.textColor}" text-anchor="middle">${this.data.text}</text>`;
-        return `<svg width="200" height="200" viewBox="0 0 100 100">${shapeSVG}${textSVG}</svg>`;
+        return `<svg width="300" height="200" viewBox="0 0 100 100">${shapeSVG}${textSVG}</svg>`;
     }
 }
 

@@ -12,7 +12,8 @@ describe('Triangle', () => {
   it('should return true if triangle is rendered correctly', () => {
       const responses = { color: "blue" };
       const shape = new Triangle(responses);
-      expect(shape.render()).toEqual(`'<polygon points='150, 18 244, 182 56, 182' fill='blue' />'`);
+      expect(shape.render()).toEqual(`<polygon points="150, 18 244, 182 56, 182" fill="blue" />`
+      );
   });
 });
 
