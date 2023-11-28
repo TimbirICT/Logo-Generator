@@ -12,6 +12,7 @@
 A simple application that takes in user input and generates a logo based on the input.
 
 ## Screenshots
+![Logo Maker](./img/logo.png)
 
 ## Usage
 
