@@ -19,7 +19,11 @@ A simple application that takes in user input and generates a logo based on the 
 Usage Video: [Video](https://drive.google.com/file/d/1FJ0ZwgIxFptotsXJbnQBa_vG95ll4JHv/view?usp=sharing)
 
 ## Sources
+Dylan Osborn - Classmate
 
+W3schools.com
+
+Stackoverflow.com
 
 ## Questions?
 Feel free to reach out with any questions!
