@@ -1,7 +1,9 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-class UserPrompter {
+// prompt for logo parameters
+
+class UserPrompter { 
     async promptUser() {
         const responses = await inquirer.prompt([
             {
@@ -42,7 +44,7 @@ class Shape {
         throw new Error('Shape is not implemented');
     }
 }
-
+// shape classes
 class Triangle extends Shape {
     constructor(responses) {
         super(responses);
@@ -76,6 +78,8 @@ class Square extends Shape {
         return `<rect x="0" y="0" width="100" height="100" fill="${this.color}" />`;
     }
 }
+
+// logo generation class constructor function
 
 class LogoGenerator {
     constructor(data) {
@@ -125,6 +129,8 @@ async function init() {
 
 init();
 
+
+// exports all classes
 module.exports = {
     init,
     Triangle,
